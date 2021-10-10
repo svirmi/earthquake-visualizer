@@ -1,0 +1,12 @@
+{
+  "name": "earthquake-visualizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:svirmi/earthquake-visualizer.git",
+  "author": "M.S. <mixa.ru.ru@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "rxjs": "^7.4.0"
+  }
+}

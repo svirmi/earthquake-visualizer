@@ -21,9 +21,12 @@ L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
 
 const quakes$ = new Observable((observer) => {
     window.eqfeed_callback = response => {
-        response.features.forEach(observer.next);
+        observer.next(response); // next only happens once, and it yields the whole JSON response
+        observer.complete();
     };
     loadJSONP(QUAKE_URL);
+}).flatMap(dataset => {
+    return Observable.from(dataset.features)
 });
 
 quakes$.subscribe(quake => {
